@@ -12,16 +12,12 @@ class UsersDetail extends Component {
 			`https://605aed1d27f0050017c05918.mockapi.io/users/${this.props.match.params.id}`
 		);
 		this.setState({ user: response.data });
-		console.log(this.state.user);
 	}
 	HandleData = async (e) => {
 		e.preventDefault();
-		const updateUser = { ...this.state.user };
-		updateUser.name = this.nameRef.current.value;
-		updateUser.phone = this.phoneRef.current.value;
 		await axios.put(
 			`https://605aed1d27f0050017c05918.mockapi.io/users/${this.props.match.params.id}`,
-			updateUser
+			{ name: this.nameRef.current.value, phone: this.phoneRef.current.value }
 		);
 	};
 	render() {

@@ -12,6 +12,14 @@ class Users extends Component {
 		);
 		this.setState({ data: response.data });
 	}
+	deleteCard = async (e) => {
+		const id = e.target.id;
+		await axios.delete(
+			`https://605aed1d27f0050017c05918.mockapi.io/users/${id}`
+		);
+		const updateData = this.state.data.filter((el) => el.id !== id);
+		this.setState({ data: updateData });
+	};
 	render() {
 		const mapUsers = () => {
 			return this.state.data.map((el) => {
@@ -23,6 +31,7 @@ class Users extends Component {
 						phone={el.phone}
 						age={el.age}
 						id={el.id}
+						deleteFunc={this.deleteCard}
 					/>
 				);
 			});

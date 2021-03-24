@@ -14,3 +14,8 @@ img {
 	height: 130px;
 	width: 100%;
 }
+
+a {
+	display: flex;
+	margin-top: 15px;
+}
