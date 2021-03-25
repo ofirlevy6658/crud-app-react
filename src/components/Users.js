@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Component } from "react";
-import { Link } from "react-router-dom";
 
 import Card from "./Card";
 
