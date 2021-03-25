@@ -4,12 +4,14 @@ import axios from "axios";
 class AddUser extends Component {
 	nameRef = React.createRef();
 	phoneRef = React.createRef();
+
 	createUser = async (e) => {
 		e.preventDefault();
 		await axios.post(`https://605aed1d27f0050017c05918.mockapi.io/users/`, {
 			name: this.nameRef.current.value,
 			phone: this.phoneRef.current.value,
 		});
+		this.props.history.push("/users");
 	};
 	render() {
 		return (

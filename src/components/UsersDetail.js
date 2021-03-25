@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 class UsersDetail extends Component {
 	state = { user: [] };
@@ -19,6 +18,7 @@ class UsersDetail extends Component {
 			`https://605aed1d27f0050017c05918.mockapi.io/users/${this.props.match.params.id}`,
 			{ name: this.nameRef.current.value, phone: this.phoneRef.current.value }
 		);
+		this.props.history.push("/users");
 	};
 	render() {
 		return (
